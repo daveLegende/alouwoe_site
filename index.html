@@ -32,38 +32,66 @@
 
         <section class="screenshots-section">
             <h2>Aperçu de l'application</h2>
-            <div class="screenshots-grid">
-                <img src="onboard1.png" alt="Capture d'écran 3" class="screenshot">
-                <img src="onboard2.png" alt="Capture d'écran 3" class="screenshot">
-                <img src="onboard3.png" alt="Capture d'écran 3" class="screenshot">
-                <img src="login.jpeg" alt="Capture d'écran 1" class="screenshot">
-                <img src="register.jpeg" alt="Capture d'écran 2" class="screenshot">
-                <img src="produit.png" alt="Capture d'écran 3" class="screenshot">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="onboard1.png" alt="Capture d'écran 1" class="screenshot"></div>
+                    <div class="carousel-slide"><img src="onboard2.png" alt="Capture d'écran 2" class="screenshot"></div>
+                    <div class="carousel-slide"><img src="onboard3.png" alt="Capture d'écran 3" class="screenshot"></div>
+                    <div class="carousel-slide"><img src="login.jpeg" alt="Capture d'écran 4" class="screenshot"></div>
+                    <div class="carousel-slide"><img src="register.jpeg" alt="Capture d'écran 5" class="screenshot"></div>
+                    <div class="carousel-slide"><img src="produit.png" alt="Capture d'écran 6" class="screenshot"></div>
+                </div>
+                <button class="carousel-button prev-button">❮</button>
+                <button class="carousel-button next-button">❯</button>
             </div>
         </section>
 
-        <section class="instructions-section">
-            <h2>Comment installer l'application</h2>
-            <ol>
-                <li>
-                    <h4>Étape 1 : Autoriser les sources inconnues</h4>
-                    <p>
-                        Avant de télécharger, allez dans les <strong>Paramètres</strong> de votre téléphone Android, puis dans <strong>Sécurité</strong> ou <strong>Applications et notifications</strong> et activez l'option "Installer des applications inconnues".
-                    </p>
-                </li>
-                <li>
-                    <h4>Étape 2 : Télécharger et installer</h4>
-                    <p>
-                        Cliquez sur le bouton "Télécharger l'APK" ci-dessus. Une fois le téléchargement terminé, ouvrez le fichier et suivez les instructions.
-                    </p>
-                </li>
-            </ol>
+        <section class="about-section">
+            <h2>A Propos de nous</h2>
+            <div class="about-grid">
+                <img src="amevi.jpeg" alt="Capture d'écran 3" class="screenshot">
+                <img src="girls.jpeg" alt="Capture d'écran 3" class="screenshot">
+                <img src="ens2.jpeg" alt="Capture d'écran 1" class="screenshot">
+                <img src="ens.jpeg" alt="Capture d'écran 3" class="screenshot">
+                <img src="ens3.jpeg" alt="Capture d'écran 2" class="screenshot">
+                <img src="ens3.jpeg" alt="Capture d'écran 3" class="screenshot">
+            </div>
         </section>
 
         <footer>
-            <p>&copy; 2025 Votre Nom ou Entreprise</p>
+            <p>&copy; 2025 ALOUWOE</p>
+            <p>&copy; 2025 ALOUWOE</p>
         </footer>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next-button');
+        const prevButton = document.querySelector('.prev-button');
+        
+        let slideIndex = 0;
 
+        const updateCarousel = () => {
+            track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        };
+
+        nextButton.addEventListener('click', () => {
+            slideIndex = (slideIndex + 1) % slides.length;
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+        
+        // Optionnel : défilement automatique
+        setInterval(() => {
+            slideIndex = (slideIndex + 1) % slides.length;
+            updateCarousel();
+        }, 5000); // Change l'image toutes les 5 secondes
+    });
+</script>
 </body>
 </html>
