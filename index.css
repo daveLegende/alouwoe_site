@@ -21,6 +21,15 @@ body {
     text-align: center;
 }
 
+/* Style pour l'icône principale de l'application */
+.app-main-icon {
+    width: 100px; /* Taille de l'icône */
+    height: 100px;
+    border-radius: 20%; /* Pour un look d'icône d'application */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
 header h1 {
     font-size: 2.5em;
     color: #007bff;
@@ -77,6 +86,36 @@ header p {
     font-weight: bold;
 }
 
+/* Styles pour la section des captures d'écran */
+.screenshots-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.screenshots-section h2 {
+    color: #007bff;
+    margin-bottom: 25px;
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 3 colonnes flexibles */
+    gap: 20px; /* Espace entre les images */
+    justify-content: center;
+}
+
+.screenshot {
+    width: 100%; /* Les images prennent toute la largeur de leur colonne */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.screenshot:hover {
+    transform: scale(1.03); /* Petit effet de zoom au survol */
+}
+
 .instructions-section {
     text-align: left;
     margin-top: 40px;
@@ -109,4 +148,24 @@ footer {
     margin-top: 40px;
     font-size: 0.9em;
     color: #999;
+}
+
+/* Media Queries pour les petits écrans */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .download-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+
+    .screenshots-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
 }
